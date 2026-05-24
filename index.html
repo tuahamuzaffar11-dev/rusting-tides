@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rusting Tides: Fight for the Antidote</title>
+    <meta name="description" content="A cinematic action-adventure arena fighter - survive the alien's arena and claim the antidote to save humanity.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Main Game Canvas -->
+        <canvas id="gameCanvas" width="1280" height="720"></canvas>
+
+        <!-- Intro Video (local file) -->
+        <video id="introVideo" preload="auto" playsinline style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; background:#000; z-index:50;">
+            <source src="intro_video.mp4" type="video/mp4">
+        </video>
+
+        <!-- Loading Screen -->
+        <div id="loading-screen">
+            <div class="loading-content">
+                <div class="loading-title">THE RUSTING TIDES</div>
+                <div class="loading-subtitle">FIGHT FOR THE ANTIDOTE</div>
+                <div class="loading-bar-container">
+                    <div class="loading-bar" id="loading-bar"></div>
+                </div>
+                <div class="loading-text" id="loading-text">Initializing...</div>
+            </div>
+        </div>
+
+        <!-- Title Screen -->
+        <div id="title-screen" style="display:none">
+            <div class="title-content">
+                <h1 class="game-title" id="game-title">THE RUSTING TIDES</h1>
+                <h2 class="game-subtitle" id="game-subtitle">FIGHT FOR THE ANTIDOTE</h2>
+                <div class="start-prompt" id="start-prompt">PRESS ENTER OR CLICK TO START</div>
+                <div class="title-controls-hint">
+                    <span>WASD / Arrows: Move</span>
+                    <span>J/Z: Light Attack</span>
+                    <span>K/X: Heavy Attack</span>
+                    <span>L/C: Block</span>
+                    <span>Space: Dodge</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Overlay -->
+        <div id="controls-overlay" style="display:none">
+            <div class="controls-box" id="controls-box">
+                <h3>CONTROLS</h3>
+                <div class="control-row"><span class="key">WASD / ←↑↓→</span><span>Move</span></div>
+                <div class="control-row"><span class="key">J / Z</span><span>Light Attack</span></div>
+                <div class="control-row"><span class="key">K / X</span><span>Heavy Attack</span></div>
+                <div class="control-row"><span class="key">L / C</span><span>Block</span></div>
+                <div class="control-row"><span class="key">SPACE</span><span>Dodge</span></div>
+                <div class="control-row"><span class="key">ENTER</span><span>Continue</span></div>
+                <div class="control-row"><span class="key">ESC</span><span>Skip Video</span></div>
+            </div>
+        </div>
+
+        <!-- Fight HUD -->
+        <div id="hud" style="display:none">
+            <div class="health-container player-health" id="player-health-container">
+                <div class="health-name" id="player-name">PROTAGONIST</div>
+                <div class="health-bar-bg">
+                    <div class="health-bar-damage" id="player-hp-damage"></div>
+                    <div class="health-bar" id="player-hp"></div>
+                </div>
+            </div>
+            <div id="round-counter">ROUND 1</div>
+            <div class="health-container alien-health" id="alien-health-container">
+                <div class="health-name" id="alien-name">ALIEN</div>
+                <div class="health-bar-bg">
+                    <div class="health-bar-damage alien" id="alien-hp-damage"></div>
+                    <div class="health-bar alien" id="alien-hp"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Round Banner -->
+        <div id="round-banner" style="display:none">
+            <div class="round-text" id="round-text">ROUND 1</div>
+            <div class="round-subtext" id="round-subtext">FIGHT!</div>
+        </div>
+
+        <!-- Victory Screen -->
+        <div id="victory-screen" style="display:none">
+            <div class="victory-content">
+                <div class="victory-text" id="victory-text">VICTORY</div>
+                <div class="victory-sub" id="victory-sub">The antidote is yours. Humanity is saved.</div>
+                <div class="victory-prompt" id="victory-prompt">Press ENTER to restart</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="engine.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
